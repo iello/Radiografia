@@ -1,0 +1,67 @@
+<!doctype html><html lang="ro"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:">
+<title>Radiografie de securitate, postură Active Directory</title>
+<style>
+ :root{--ink:#141414;--muted:#4A4A46;--bg:#FAFAF7;--rule:#D7D4CC;--accent:#1B3A5B}
+ *{box-sizing:border-box} body{font:16px/1.6 system-ui,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg);margin:0;padding:32px}
+ .wrap{max-width:820px;margin:0 auto}
+ h1{font-size:1.7rem;margin:0 0 4px} .sub{color:var(--muted);margin-bottom:24px}
+ .score{display:flex;gap:20px;align-items:center;border:1px solid var(--rule);border-radius:12px;padding:20px;background:#fff;margin-bottom:28px}
+ .grada{font-size:3.2rem;font-weight:800;line-height:1;width:88px;height:88px;display:flex;align-items:center;justify-content:center;border-radius:12px;color:#fff}
+ .kpis{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:28px}
+ .kpi{border:1px solid var(--rule);border-radius:10px;padding:12px 16px;background:#fff;min-width:150px}
+ .kpi b{font-size:1.5rem;display:block} .kpi span{color:var(--muted);font-size:.85rem}
+ h2{font-size:1.15rem;border-top:1px solid var(--rule);padding-top:20px;margin-top:28px}
+ table{width:100%;border-collapse:collapse} td{border-bottom:1px solid var(--rule);padding:12px 6px;vertical-align:top}
+ .pill{color:#fff;font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:20px;white-space:nowrap}
+ .dov{color:var(--muted);font-size:.92rem;margin-top:4px} .rem{font-size:.92rem;margin-top:6px}
+ .nis{color:var(--muted);font-size:.78rem;margin-top:4px;font-style:italic}
+ .heal{background:#fff;border:1px solid var(--rule);border-left:4px solid #3E7C5A;border-radius:8px;padding:8px 20px}
+ .foot{color:var(--muted);font-size:.82rem;margin-top:32px;border-top:1px solid var(--rule);padding-top:16px}
+</style></head><body><div class="wrap">
+<h1>Radiografie de securitate, Active Directory și rețea</h1>
+<div class="sub">Auto-evaluare pe date proprii · instantaneu 2026-07-13 · generat la tine, datele nu pleacă nicăieri</div>
+<div class="score"><div class="grada" style="background:#C0562E">D</div>
+ <div><strong>Scor de risc: 77/100</strong> (mai mic e mai bine)<br>
+ <span class="sub">6 constatări · 2 semnale sănătoase</span></div></div>
+<div class="kpis">
+ <div class="kpi"><b>133</b><span>obiecte-calculator</span></div>
+ <div class="kpi"><b>27%</b><span>OS scos din suport (36/133 cunoscute)</span></div>
+ <div class="kpi"><b>1</b><span>pe Windows XP</span></div>
+ <div class="kpi"><b>40%</b><span>acoperire LAPS</span></div>
+ <div class="kpi"><b>0/2</b><span>controlere de domeniu EOL</span></div>
+ <div class="kpi"><b>6+2</b><span>domain + enterprise admins</span></div>
+</div>
+<h2>Rețea (scan intern)</h2><div class="kpis">
+ <div class="kpi"><b>15</b><span>gazde active (15 cu nume)</span></div>
+ <div class="kpi"><b>0</b><span>cu telnet în clar</span></div>
+ <div class="kpi"><b>3</b><span>SMB fără semnătură</span></div>
+ <div class="kpi"><b>4</b><span>RDP expus</span></div>
+ <div class="kpi"><b>3</b><span>certificate expirate</span></div>
+ <div class="kpi"><b>0</b><span>port DB pe rețea</span></div>
+</div>
+<h2>Constatări, prioritizate</h2>
+<table><tr>
+      <td><span class="pill" style="background:#A6372E">CRITIC</span></td>
+      <td><strong>27% din parcul cu OS cunoscut rulează sisteme scoase din suport</strong><div class="dov">36 din 133 calculatoare active pe OS scos din suport (din care 1 pe Windows XP). 133 obiecte-calculator în total.</div>
+          <div class="rem">→ Plan de retragere sau migrare a sistemelor moarte. Până le înlocuiești, izolează-le în rețea.</div><div class="nis">NIS2 art. 21(2)(e), securitatea achiziției și mentenanței, patching</div></td></tr><tr>
+      <td><span class="pill" style="background:#C0562E">MARE</span></td>
+      <td><strong>Parole de administrator local ne-randomizate (LAPS 40%)</strong><div class="dov">Doar 53 din 133 calculatoare au LAPS. Fără el, parola de admin local e probabil aceeași peste tot, deci o singură mașină spartă le descuie pe toate.</div>
+          <div class="rem">→ Activează LAPS (Windows LAPS) pe tot parcul înrolat în domeniu.</div><div class="nis">NIS2 art. 21(2)(i), igiena de bază, control acces</div></td></tr><tr>
+      <td><span class="pill" style="background:#C08A2D">MEDIU</span></td>
+      <td><strong>2 conturi la care o parolă goală e posibilă tehnic</strong><div class="dov">Flag-ul passwordnotreqd e pus pe 2 conturi active.</div>
+          <div class="rem">→ Scoate flag-ul și impune o politică de parole.</div><div class="nis">NIS2 art. 21(2)(i)</div></td></tr><tr>
+      <td><span class="pill" style="background:#C08A2D">MEDIU</span></td>
+      <td><strong>Semnătură SMB neimpusă pe 3 sisteme</strong><div class="dov">Deschide o clasă de atacuri de retransmitere pe rețeaua internă.</div>
+          <div class="rem">→ Impune semnătura SMB prin politică.</div><div class="nis">NIS2 art. 21(2)(i)</div></td></tr><tr>
+      <td><span class="pill" style="background:#C08A2D">MEDIU</span></td>
+      <td><strong>Desktop la distanță (RDP) expus pe 4 sisteme</strong><div class="dov">Sesiuni grafice de administrare direct pe rețeaua internă.</div>
+          <div class="rem">→ Restrânge RDP (VPN sau bastion), NLA, MFA.</div><div class="nis">NIS2 art. 21(2)(i),(j)</div></td></tr><tr>
+      <td><span class="pill" style="background:#8A8782">MIC</span></td>
+      <td><strong>Certificate TLS expirate pe 3 sisteme</strong><div class="dov">Certificate efectiv expirate, verificate pe dată.</div>
+          <div class="rem">→ Reînnoire și automatizare (ACME).</div><div class="nis">NIS2 art. 21(2)(h)</div></td></tr></table>
+<h2>Ce e sănătos (calibrare, ca să echilibreze povestea)</h2>
+<ul class="heal"><li>Fără istoric de identificatori clonați (SID history), nicio urmă de migrare abuzabilă.</li><li>Fără delegare nerestrânsă în afara controlerelor de domeniu.</li></ul>
+<div class="foot"><strong>Metodă și limite.</strong> Agregări directe din colectarea proprie (SharpHound pentru Active Directory, scan nmap pentru rețea). Semnalele brute sunt calibrate (de exemplu, permisiunile implicite standard din orice domeniu Windows NU sunt căi de atac). Un semnal e un indiciu, nu o dovadă de exploatabilitate. Datele nu părăsesc mașina. Radiografie de triaj, nu audit formal.</div>
+</div></body></html>

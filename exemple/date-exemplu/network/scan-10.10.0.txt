@@ -1,0 +1,132 @@
+Nmap scan report for srv01.exemplu.local (10.10.0.1)
+Host is up (0.001s latency).
+PORT     STATE SERVICE
+22/tcp open  ssh
+|_  SSH-2.0-OpenSSH_9.7
+443/tcp open  https
+| ssl-cert: Not valid after:  2024-02-01
+445/tcp open  microsoft-ds
+| smb2-security-mode:
+|_  Message signing enabled but not required
+3389/tcp open  ms-wbt-server
+
+Nmap scan report for srv02.exemplu.local (10.10.0.2)
+Host is up (0.001s latency).
+PORT     STATE SERVICE
+22/tcp open  ssh
+|_  SSH-2.0-OpenSSH_9.7
+443/tcp open  https
+| ssl-cert: Not valid after:  2024-02-01
+445/tcp open  microsoft-ds
+| smb2-security-mode:
+|_  Message signing enabled but not required
+3389/tcp open  ms-wbt-server
+
+Nmap scan report for srv03.exemplu.local (10.10.0.3)
+Host is up (0.001s latency).
+PORT     STATE SERVICE
+22/tcp open  ssh
+|_  SSH-2.0-OpenSSH_9.7
+443/tcp open  https
+| ssl-cert: Not valid after:  2024-02-01
+445/tcp open  microsoft-ds
+| smb2-security-mode:
+|_  Message signing enabled but not required
+3389/tcp open  ms-wbt-server
+
+Nmap scan report for srv04.exemplu.local (10.10.0.4)
+Host is up (0.001s latency).
+PORT     STATE SERVICE
+22/tcp open  ssh
+|_  SSH-2.0-OpenSSH_9.7
+443/tcp open  https
+| ssl-cert: Not valid after:  2027-06-01
+3389/tcp open  ms-wbt-server
+
+Nmap scan report for srv05.exemplu.local (10.10.0.5)
+Host is up (0.001s latency).
+PORT     STATE SERVICE
+22/tcp open  ssh
+|_  SSH-2.0-OpenSSH_9.7
+443/tcp open  https
+| ssl-cert: Not valid after:  2027-06-01
+
+Nmap scan report for srv06.exemplu.local (10.10.0.6)
+Host is up (0.001s latency).
+PORT     STATE SERVICE
+22/tcp open  ssh
+|_  SSH-2.0-OpenSSH_9.7
+443/tcp open  https
+| ssl-cert: Not valid after:  2027-06-01
+
+Nmap scan report for srv07.exemplu.local (10.10.0.7)
+Host is up (0.001s latency).
+PORT     STATE SERVICE
+22/tcp open  ssh
+|_  SSH-2.0-OpenSSH_9.7
+443/tcp open  https
+| ssl-cert: Not valid after:  2027-06-01
+
+Nmap scan report for srv08.exemplu.local (10.10.0.8)
+Host is up (0.001s latency).
+PORT     STATE SERVICE
+22/tcp open  ssh
+|_  SSH-2.0-OpenSSH_9.7
+443/tcp open  https
+| ssl-cert: Not valid after:  2027-06-01
+
+Nmap scan report for srv09.exemplu.local (10.10.0.9)
+Host is up (0.001s latency).
+PORT     STATE SERVICE
+22/tcp open  ssh
+|_  SSH-2.0-OpenSSH_9.7
+443/tcp open  https
+| ssl-cert: Not valid after:  2027-06-01
+
+Nmap scan report for srv10.exemplu.local (10.10.0.10)
+Host is up (0.001s latency).
+PORT     STATE SERVICE
+22/tcp open  ssh
+|_  SSH-2.0-OpenSSH_9.7
+443/tcp open  https
+| ssl-cert: Not valid after:  2027-06-01
+
+Nmap scan report for srv11.exemplu.local (10.10.0.11)
+Host is up (0.001s latency).
+PORT     STATE SERVICE
+22/tcp open  ssh
+|_  SSH-2.0-OpenSSH_9.7
+443/tcp open  https
+| ssl-cert: Not valid after:  2027-06-01
+
+Nmap scan report for srv12.exemplu.local (10.10.0.12)
+Host is up (0.001s latency).
+PORT     STATE SERVICE
+22/tcp open  ssh
+|_  SSH-2.0-OpenSSH_9.7
+443/tcp open  https
+| ssl-cert: Not valid after:  2027-06-01
+
+Nmap scan report for srv13.exemplu.local (10.10.0.13)
+Host is up (0.001s latency).
+PORT     STATE SERVICE
+22/tcp open  ssh
+|_  SSH-2.0-OpenSSH_9.7
+443/tcp open  https
+| ssl-cert: Not valid after:  2027-06-01
+
+Nmap scan report for srv14.exemplu.local (10.10.0.14)
+Host is up (0.001s latency).
+PORT     STATE SERVICE
+22/tcp open  ssh
+|_  SSH-2.0-OpenSSH_9.7
+443/tcp open  https
+| ssl-cert: Not valid after:  2027-06-01
+
+Nmap scan report for srv15.exemplu.local (10.10.0.15)
+Host is up (0.001s latency).
+PORT     STATE SERVICE
+22/tcp open  ssh
+|_  SSH-2.0-OpenSSH_9.7
+443/tcp open  https
+| ssl-cert: Not valid after:  2027-06-01
